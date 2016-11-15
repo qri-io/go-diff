@@ -168,6 +168,16 @@ type Patch struct {
 	length2 int
 }
 
+func NewPatch(start1, length1, start2, length2 int, diffs []Diff) Patch {
+	return Patch{
+		start1:  start1,
+		start2:  start2,
+		length1: length1,
+		length2: length2,
+		diffs:   diffs,
+	}
+}
+
 // String emulates GNU diff's format.
 // Header: @@ -382,8 +481,9 @@
 // Indicies are printed as 1-based, not 0-based.
